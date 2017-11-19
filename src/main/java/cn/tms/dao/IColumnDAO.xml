@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tms.dao.IColumnDAO">
+<!--获取所有内容-->
+<select id="list" resultType="Column">
+    SELECT * FROM cm_column
+</select>
+
+
+    <select id="listname" resultType="News">
+        SELECT * FROM news WHERE  columnname=#{columnname}
+    </select>
+
+    <delete id="delnews">
+        DELETE FROM news WHERE id=#{id}
+    </delete>
+
+    <insert id="insernews">
+        INSERT INTO news (columnname,title,updatetime,creator,zhenwenn,defaulttitle) VALUES (#{columnname},#{title},NOW(),#{creator},#{zhenwenn},#{defaulttitle})
+    </insert>
+        </mapper>
